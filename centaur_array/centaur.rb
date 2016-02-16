@@ -1,6 +1,8 @@
 class Centaur
+  STANDING = 2
+  COUNT = 3
   def initialize(name, breed)
-    @status = [].push  name, breed, false, true, 0
+    @status = [].push  name, breed, true, 0
   end
 
   def name
@@ -12,53 +14,50 @@ class Centaur
   end
 
   def shoot
-    @status[4] = @status[4] + 1
+    @status[COUNT] += 1
 
-    if @status[4] < 3 and @status[3]
-      @status[2] = true
-      "Twang!!!"
-    else
+    if cranky? or laying?
       "NO!"
+    else
+      "Twang!!!"
     end
   end
 
   def run
-    @status[4] = @status[4] + 1
+    @status[COUNT] += 1
 
-    if @status[4] < 3 and @status[3]
-      @status[2] = true
-      "Clop clop clop clop!!!"
-    else
+    if cranky? or laying?
       "NO!"
+    else
+      "Clop clop clop clop!!!"
     end
   end
 
   def cranky?
-    @status[2]
+    @status[COUNT] >= 3
   end
 
   def standing?
-    @status[3]
+    @status[STANDING]
   end
 
   def sleep
-    if @status[3]
+    if standing?
     "NO!"
     else
-      @status[2] = false
-      @status[4] = 0
+      @status[COUNT] = 0
     end
   end
 
   def lay_down
-    @status[3] = false
+    @status[STANDING] = false
   end
 
   def laying?
-    @status[3] == false
+    !@status[STANDING]
   end
 
   def stand_up
-    @status[3] = true
+    @status[STANDING] = true
   end
 end
