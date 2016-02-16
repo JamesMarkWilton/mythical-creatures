@@ -14,7 +14,7 @@ class Centaur
   def shoot
     @status[4] = @status[4] + 1
 
-    if @status[4] < 3 and @status[3] != false
+    if @status[4] < 3 and @status[3]
       @status[2] = true
       "Twang!!!"
     else
@@ -25,7 +25,7 @@ class Centaur
   def run
     @status[4] = @status[4] + 1
 
-    if @status[4] < 3 && @status[3] != false
+    if @status[4] < 3 and @status[3]
       @status[2] = true
       "Clop clop clop clop!!!"
     else
@@ -42,7 +42,7 @@ class Centaur
   end
 
   def sleep
-    if @status[3] == true
+    if @status[3]
     "NO!"
     else
       @status[2] = false
