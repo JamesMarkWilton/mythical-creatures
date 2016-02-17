@@ -14,9 +14,3 @@ class Dragon
 
   def eat; @hunger -= 1 end
 end
-
-
-require "pry"
-binding.pry
-
-test = Dragon.new
