@@ -34,3 +34,6 @@ class Werewolf
     victim.kill
   end
 end
+
+Test.rb
+
